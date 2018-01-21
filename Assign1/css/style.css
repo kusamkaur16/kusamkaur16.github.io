@@ -1,0 +1,127 @@
+.backgroundDiv {
+  width: 100%;
+  height: 100%;
+}
+
+.backgroundDiv::after {
+  content: "";
+  background: url("https://www.willpursell.com/wp-content/uploads/2017/02/tiny-wedding-hycroft-vancouver.jpg");
+  opacity: 0.75;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.mainHeader {
+  color: #FFFFFF;
+  position: fixed;
+  text-decoration: none;
+  font-size: 100px;
+  width: 100%;
+  text-align: center;
+  top: 30%;
+}
+
+.mainSubHeader {
+  color: #FFFFFF;
+  position: fixed;
+  text-decoration: none;
+  font-size: 30px;
+  width: 100%;
+  text-align: center;
+  top: 50%;
+  text-shadow: 0 0 8px #0E103D;
+  opacity: .95;
+  font-style: oblique;
+}
+
+.navigationMenu {
+  position: fixed;
+  width: 100%;
+  height: 10%;
+  bottom: 10px;
+  left: 0;
+  opacity: .95;
+}
+
+.navigationMenu:hover {
+  background-color: #69306D;
+}
+
+.navMenu {
+  width: 100%;
+  position: fixed;
+  bottom: 30px;
+}
+
+.navMenuText {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 30px;
+  text-shadow: 0 0 8px #0E103D;
+}
+
+.topNavigationMenu {
+  background: #69306D;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5%;
+  width: 100%;
+  text-align: center;
+}
+
+.topMenu {
+  position: fixed;
+  right: 0;
+  width: 50%;
+  height: 5%;
+}
+
+td {
+  width: 25%;
+}
+
+td:hover {
+  background-color: #D3BCC0;
+}
+
+.topNavMenuText {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 20px;
+  text-align: center;
+}
+
+img {
+  width: 100%;
+  position: fixed;
+  top: 5%;
+  left: 0;
+}
+
+.mainContent {
+  background-color: #A5668B;
+  position: fixed;
+  top: 45%;
+  left: 0;
+  height: 100%;
+}
+
+.content {
+  width: 80%;
+  align-self: center;
+  position: sticky;
+  left: 10%;
+  height: 60%;
+  background-color: #D3BCC0;
+}
+
+.pageTitle{
+  color: white;
+  font-size: 30;
+  text-align: right;
+}

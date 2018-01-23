@@ -104,7 +104,7 @@ th {
 .topNavMenuText {
   color: #FFFFFF;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 1em;
   text-align: center;
 }
 
@@ -129,7 +129,7 @@ th {
   top: 60%;
   width: 100%;
   left: 0;
-  height: 100%;
+  height: 150%;
   padding-bottom: 280px;
 }
 
@@ -157,7 +157,7 @@ th {
   color: white;
   padding-right: 30px;
   opacity: .8;
-  font-size: 20px;
+  font-size: 1em;
   font-family: sans-serif;
   font-style: italic;
   vertical-align: 20px;
@@ -171,9 +171,9 @@ th {
   border-collapse: collapse;
   background: white;
   border-radius: 10px;
-  overflow: hidden;
+
   margin: 0 auto;
-  position: relative;
+
 }
 
 .tableHeading {
@@ -207,18 +207,17 @@ tr.cusineOptions:nth-child(even) {
   content: '✓';
 }
 
-.cardShow{
-width: 100%;
-    height: 390px;
+.cardShow {
+  width: 100%;
+  height: 390px;
 }
 
-.section{
+.section {
   width: 50%;
   float: right;
 }
 
 .list {
-
   margin: 10px
 }
 
@@ -240,7 +239,6 @@ li p {
   padding-left: 60px;
   color: white;
   opacity: .8;
-
 }
 
 span {

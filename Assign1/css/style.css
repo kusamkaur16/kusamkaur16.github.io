@@ -171,9 +171,7 @@ th {
   border-collapse: collapse;
   background: white;
   border-radius: 10px;
-
   margin: 0 auto;
-
 }
 
 .tableHeading {
@@ -209,12 +207,12 @@ tr.cusineOptions:nth-child(even) {
 
 .cardShow {
   width: 100%;
-  height: 390px;
 }
 
 .section {
   width: 50%;
-  float: right;
+  left: 25%;
+  position: relative;
 }
 
 .list {

@@ -91,13 +91,14 @@ function getStats(txt) {
      * This function calculates the average length of all the words that are in the text
      */
     var averageWordLength = function(text) {
-        if (text === "") {
-            return 0;
-        }
+
         //get all the words in the string
         let words = numWords(text).wordArray;
         let wordsLength = words.length;
         let wordLengthSum = 0;
+        if (wordsLength === "") {
+            return 0;
+        }
 
         for (let i = 0; i < wordsLength; i++) {
             if (words[i] !== "") {

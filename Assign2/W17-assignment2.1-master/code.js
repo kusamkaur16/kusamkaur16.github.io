@@ -6,19 +6,43 @@ function getStats(txt) {
      * This function is used to calculate the total number of chars for the passed in string
      */
     var numChars = function(text) {
+        if (text === "") {
+            return 0;
+        }
         return text.length;
     };
 
     /*
-     *This function calculates the total number of words in a string
+     * This function removes all empty strings from an array
+     */
+    var removeEmpty = function(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === "") {
+                arr.splice(i, 1);
+            }
+        }
+        return arr;
+    };
+
+    /*
+     * This function calculates the total number of words in a string
      */
     var numWords = function(text) {
         //replace all non letter and non number characters with a space
-        let textParse = text.replace(/[^A-Za-z0-9]/g, " ");
+        if (text === "") {
+            return 0;
+        }
+        let textParse = text.replace(/[^A-Za-z0-9]/g, ' ');
+        textParse = textParse.replace('_', ' ');
         textParse = textParse.trim();
+        console.log(textParse, "parsed string");
 
         //split on multiple spaces
         let words = textParse.split(/\s*\s/);
+
+        //remove all empty string from the array
+        words = removeEmpty(words);
+        console.log("array", words);
 
         return {
             wordLen: words.length,
@@ -48,6 +72,9 @@ function getStats(txt) {
      */
     var numNonEmptyLines = function(text) {
         let nonEmptyCounter = 0;
+        if (text === "") {
+            return 0;
+        }
 
         //Find the total number of lines
         lines = numLines(text).lines;
@@ -64,6 +91,9 @@ function getStats(txt) {
      * This function calculates the average length of all the words that are in the text
      */
     var averageWordLength = function(text) {
+        if (text === "") {
+            return 0;
+        }
         //get all the words in the string
         let words = numWords(text).wordArray;
         let wordsLength = words.length;
@@ -82,6 +112,9 @@ function getStats(txt) {
      * Calculate the largest line length
      */
     var maxLineLength = function(text) {
+        if (text === "") {
+            return 0;
+        }
         let max = 0;
         //get all lines in the text
         let lines = numLines(text).lines;
@@ -102,6 +135,9 @@ function getStats(txt) {
      * This function finds all the palindromes in the text
      */
     var palindromeMaker = function(text) {
+        if (text === "") {
+            return new Array();
+        }
         //get the list of words
         let words = numWords(txt).wordArray;
         let wordNum = words.length;
@@ -120,8 +156,9 @@ function getStats(txt) {
                 reverseOfWord = tempArray.join('');
 
                 //check to see if the word is a palindrome
-                if ((reverseOfWord.toLowerCase() === word.toLowerCase()) && (word.length !== 1)) {
-                    palindromes.push(word.toLowerCase());
+                if ((reverseOfWord.toLowerCase() === word.toLowerCase()) && (reverseOfWord.length > 2)) {
+                    if (palindromes.indexOf(reverseOfWord) === -1)
+                        palindromes.push(word.toLowerCase());
                 }
             }
         }
@@ -132,6 +169,9 @@ function getStats(txt) {
      * This function is used to find the top 10 longest words
      */
     var findLongestWords = function(text) {
+        if (text === "") {
+            return new Array();
+        }
         let allWords = numWords(text).wordArray;
         let wordCountList = [];
         let wordCounts = new Array();
@@ -230,6 +270,9 @@ function getStats(txt) {
      * This function is used to find the words that happen most frequently
      */
     var findMostFrequentWords = function(text) {
+        if (text === "") {
+            return new Array();
+        }
         let allWords = numWords(text).wordArray;
         let allWordsSize = allWords.length;
 

@@ -1,21 +1,24 @@
 //
 // this is just a stub for a function you need to implement
-//
+// Modified by: Kusamdeep Brar, 10125311
 function getStats(txt) {
-    //Calculate the number of chars in the text
+    /*
+     * This function is used to calculate the total number of chars for the passed in string
+     */
     var numChars = function(text) {
         return text.length;
     };
 
-    //calculate the number of words in the text
-    //TODO
+    /*
+     *This function calculates the total number of words in a string
+     */
     var numWords = function(text) {
         //replace all non letter and non number characters with a space
-        var textParse = text.replace(/[^A-Za-z0-9]/g, " ");
+        let textParse = text.replace(/[^A-Za-z0-9]/g, " ");
         textParse = textParse.trim();
 
         //split on multiple spaces
-        var words = textParse.split(/\s*\s/);
+        let words = textParse.split(/\s*\s/);
 
         return {
             wordLen: words.length,
@@ -23,14 +26,16 @@ function getStats(txt) {
         }
     };
 
-    //calculate the number of lines in the text
+    /*
+     * This function calculates the total number of lines in the passed in string
+     */
     var numLines = function(text) {
         //if text is empty, return 0
         if (text.length === 0) {
             return 0;
         }
         //split on newline
-        var lines = text.split(/\n/);
+        let lines = text.split(/\n/);
         return {
             lineCount: lines.length,
             lines: lines
@@ -38,68 +43,75 @@ function getStats(txt) {
 
     };
 
-    //calculate the number of nNonEmptyLines in the text
+    /*
+     * This function determines the total number of non empty lines in the passed in string
+     */
     var numNonEmptyLines = function(text) {
-        var nonEmptyCounter = 0;
+        let nonEmptyCounter = 0;
 
+        //Find the total number of lines
         lines = numLines(text).lines;
-        for (var i = 0; i < lines.length; i++) {
+        for (let i = 0; i < lines.length; i++) {
+            // After taking out the spaces, check to see if there is anything in the line
             if (lines[i].replace(/\s*\s/, "") !== "") {
                 nonEmptyCounter++;
             }
         }
         return nonEmptyCounter;
-
     };
 
-    //calculate the averageWordLength in the text
+    /*
+     * This function calculates the average length of all the words that are in the text
+     */
     var averageWordLength = function(text) {
+        //get all the words in the string
+        let words = numWords(text).wordArray;
+        let wordsLength = words.length;
+        let wordLengthSum = 0;
 
-        var words = numWords(text).wordArray;
-        var wordsLength = words.length;
-        var wordLengthSum = 0;
-
-        for (var i = 0; i < wordsLength; i++) {
+        for (let i = 0; i < wordsLength; i++) {
             if (words[i] !== "") {
-                var word = words[i];
+                let word = words[i];
                 wordLengthSum += word.length;
             }
         }
-
         return wordLengthSum / wordsLength;
-
     };
 
-    //calculate the maxLineLength
+    /*
+     * Calculate the largest line length
+     */
     var maxLineLength = function(text) {
-        var max = 0;
-        var lines = numLines(text).lines;
+        let max = 0;
+        //get all lines in the text
+        let lines = numLines(text).lines;
 
-        for (var i = 0; i < lines.length; i++) {
+        for (let i = 0; i < lines.length; i++) {
             if (lines[i] !== "") {
-                var lineCount = lines[i];
+                let lineCount = lines[i];
                 if (lineCount.length > max) {
                     max = lineCount.length
                 }
             }
         }
-
         return max;
 
     };
 
-    //find the palindromes
+    /*
+     * This function finds all the palindromes in the text
+     */
     var palindromeMaker = function(text) {
         //get the list of words
-        var words = numWords(txt).wordArray;
-        var wordNum = words.length;
-        var palindromes = [];
+        let words = numWords(txt).wordArray;
+        let wordNum = words.length;
+        let palindromes = [];
 
-        for (var i = 0; i < wordNum; i++) {
+        for (let i = 0; i < wordNum; i++) {
             if (words[i] !== "") {
-                var reverseOfWord;
-                var tempArray;
-                var word = words[i];
+                let reverseOfWord;
+                let tempArray;
+                let word = words[i];
                 //split the string into characters
                 tempArray = word.split('');
                 //reverse the order of characters
@@ -116,12 +128,15 @@ function getStats(txt) {
         return palindromes;
     };
 
-    //find the 10 longest words
+    /*
+     * This function is used to find the top 10 longest words
+     */
     var findLongestWords = function(text) {
-        var allWords = numWords(text).wordArray;
-        var wordCountList = [];
-        var wordCounts = new Array();
+        let allWords = numWords(text).wordArray;
+        let wordCountList = [];
+        let wordCounts = new Array();
 
+        //find the number of letters in each word
         for (let i = 0; i < allWords.length; i++) {
             let word = allWords[i].toLowerCase();
             let wordCount = word.length;
@@ -141,6 +156,7 @@ function getStats(txt) {
             }
         }
 
+        //get the keys for the generated mock dictionary
         var keys = Object.keys(wordCountList);
         for (let i = 0; i < keys.length; i++) {
             let temp = keys[i];
@@ -150,11 +166,12 @@ function getStats(txt) {
 
         }
 
+        //reverse the order of the keys so the largest length is at the top
         keys.sort(function(a, b) {
             return b - a
         });
 
-
+        //traverse through all the keys and select out the top 10
         for (let j = 0; j < keys.length; j++) {
 
             if (wordCounts.length <= 10) {
@@ -169,56 +186,88 @@ function getStats(txt) {
         }
 
         let returnedAnswer = wordCounts.splice(0, 10);
-
         return returnedAnswer;
+    };
+
+    /*
+     * Get the list of all words and how many times they appear in the array
+     */
+    var findDuplicates = function(arr, arrCopy) {
+
+        let duplicates = {};
+        let duplicateCount = 0;
+        for (let i = 0; i < arr.length; i++) {
+            duplicateCount = 1;
+            for (let j = 0; j < arrCopy.length; j++) {
+                if (i !== j) {
+                    if (arr[i].toLowerCase() === arrCopy[j].toLowerCase()) {
+                        duplicateCount++;
+                    }
+                }
+            }
+            //make the frequency of occurence they key
+            let key = "\'" + duplicateCount + "\'";
+            if (duplicates[key] !== undefined) {
+                var tmp = duplicates[key];
+                //if the key exists but the current word is not in its list, add it
+                if (tmp.indexOf(arr[i].toLowerCase()) === -1) {
+                    tmp.push(arr[i].toLowerCase());
+                    tmp.sort();
+                    duplicates[key] = tmp;
+                }
+            } else {
+                // if this is a new frequency add it to the list with its word
+                var tmpArray = new Array();
+                tmpArray.push(arr[i].toLowerCase());
+                duplicates[key] = tmpArray;
+            }
+        }
+        return duplicates;
 
     };
 
-    //find the most frequent words
+    /*
+     * This function is used to find the words that happen most frequently
+     */
     var findMostFrequentWords = function(text) {
-        //find all the unique words
-        var allWords = numWords(text).wordArray;
-        var uniqueWords = {};
+        let allWords = numWords(text).wordArray;
+        let allWordsSize = allWords.length;
 
-        //find how often the word occurs in the string
-        for (let i = 0; i < allWords.length; i++) {
-            let word = allWords[i].toLowerCase();
-            console.log(allWords.indexOf(word));
+        let wordFrequencyList = [];
 
-            if (uniqueWords[word] != undefined) {
-                uniqueWords[word] = uniqueWords[word] + 1;
-            } else {
-                uniqueWords[word] = 1;
+        let list = findDuplicates(allWords, allWords);
+        let sortable = [];
+
+        // get the list of keys and convert the key value pairs into an array so its easier to
+        // traverse and manipulate
+        for (let key in list) {
+            let newKey = key.replace("\'", "");
+            newKey = newKey.replace("\'", "");
+            sortable.push([newKey, list[key]]);
+        }
+
+        //sort the list in reverse order to get the most frequent words at the top
+        sortable.sort(function(a, b) {
+            return b[0] - a[0];
+        });
+
+        //return the top 10 results
+        let counter = 0;
+        for (let i = 0; i < sortable.length; i++) {
+            if (counter < 10) {
+                wordList = sortable[i];
+                for (words in wordList[1]) {
+                    let finalWord = wordList[1][words] + "(" + wordList[0] + ")";
+                    wordFrequencyList.push(finalWord);
+                    counter++;
+                    if (counter > 9) {
+                        break;
+                    }
+                }
+
             }
         }
-
-        //---------Change this section of the code
-        var sortable = [];
-        for (var key in uniqueWords) {
-            if (uniqueWords.hasOwnProperty(key)) {
-                sortable.push([key, uniqueWords[key]]); // each item is an array in format [key, value]
-              }
-
-        }
-
-        // sort items by value
-        sortable.sort(function(a, b) {
-            return b[1] - a[1]; // compare numbers
-        });
-        //--------------------------
-
-        let tempArray = sortable.splice(0, 10);
-
-        let returnArray = [];
-
-        for (let key in tempArray) {
-            let val = tempArray[key][0] + "(" + tempArray[key][1] + ")";
-            returnArray.push(val)
-        }
-
-
-
-        return returnArray;
+        return wordFrequencyList;
     };
 
     return {

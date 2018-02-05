@@ -35,14 +35,12 @@ function getStats(txt) {
         let textParse = text.replace(/[^A-Za-z0-9]/g, ' ');
         textParse = textParse.replace('_', ' ');
         textParse = textParse.trim();
-        console.log(textParse, "parsed string");
 
         //split on multiple spaces
         let words = textParse.split(/\s*\s/);
 
         //remove all empty string from the array
         words = removeEmpty(words);
-        console.log("array", words);
 
         return {
             wordLen: words.length,
@@ -96,7 +94,8 @@ function getStats(txt) {
         let words = numWords(text).wordArray;
         let wordsLength = words.length;
         let wordLengthSum = 0;
-        if (wordsLength === "") {
+
+        if (wordsLength == 0) {
             return 0;
         }
 

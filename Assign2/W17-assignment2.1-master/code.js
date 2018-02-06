@@ -1,6 +1,7 @@
 //
 // this is just a stub for a function you need to implement
 // Modified by: Kusamdeep Brar, 10125311
+// Can be found in https://kusamkaur16.github.io/Assign2/W17-assignment2.1-master/index.html
 function getStats(txt) {
     /*
      * This function is used to calculate the total number of chars for the passed in string
@@ -89,6 +90,10 @@ function getStats(txt) {
      * This function calculates the average length of all the words that are in the text
      */
     var averageWordLength = function(text) {
+        //if we have an empty word list
+        if (text === "") {
+            return new Array();
+        }
 
         //get all the words in the string
         let words = numWords(text).wordArray;
@@ -169,71 +174,39 @@ function getStats(txt) {
      * This function is used to find the top 10 longest words
      */
     var findLongestWords = function(text) {
+        let allWords = numWords(text).wordArray;
+        //if we have an empty word list
         if (text === "") {
             return new Array();
         }
-        let allWords = numWords(text).wordArray;
-        let wordCountList = [];
-        let wordCounts = new Array();
 
-        //find the number of letters in each word
+        let wordMaxList = [];
         for (let i = 0; i < allWords.length; i++) {
-            let word = allWords[i].toLowerCase();
-            let wordCount = word.length;
-            let key = "\'" + wordCount + "\'";
-            if (wordCountList[key] != undefined) {
+            if (wordMaxList.indexOf(allWords[i]) === -1) {
+                wordMaxList.push(allWords[i].toLowerCase());
+            }
+        }
 
-                let array = wordCountList[key];
-                if (array.indexOf(word) === -1) {
-                    array.push(word);
-                    array.sort();
-                    wordCountList[key] = array;
-                }
+        // Sort the list so the longest word is first
+        sortFunction = function(b, a) {
+            if (a > b) {
+                return 1;
+            } else if (b < a) {
+                return -1;
             } else {
-                let tempArray = new Array();
-                tempArray.push(word);
-                wordCountList[key] = tempArray;
+                return 0;
             }
-        }
+        };
+        wordMaxList.sort(sortFunction);
+        let returnArray = wordMaxList.splice(0, 10);
 
-        //get the keys for the generated mock dictionary
-        var keys = Object.keys(wordCountList);
-        for (let i = 0; i < keys.length; i++) {
-            let temp = keys[i];
-            temp = temp.replace("\'", "");
-            temp = temp.replace("\'", "");
-            keys[i] = temp;
-
-        }
-
-        //reverse the order of the keys so the largest length is at the top
-        keys.sort(function(a, b) {
-            return b - a
-        });
-
-        //traverse through all the keys and select out the top 10
-        for (let j = 0; j < keys.length; j++) {
-
-            if (wordCounts.length <= 10) {
-                let x = "\'" + keys[j] + "\'";
-                let array2 = wordCountList[x];
-
-                for (let k = 0; k < array2.length; k++) {
-                    let value = array2[k];
-                    wordCounts.push(value);
-                }
-            }
-        }
-
-        let returnedAnswer = wordCounts.splice(0, 10);
-        return returnedAnswer;
+        return returnArray;
     };
 
     /*
      * Get the list of all words and how many times they appear in the array
      */
     var findDuplicates = function(arr, arrCopy) {
-
         let duplicates = {};
         let duplicateCount = 0;
         for (let i = 0; i < arr.length; i++) {
@@ -245,6 +218,7 @@ function getStats(txt) {
                     }
                 }
             }
+
             //make the frequency of occurence they key
             let key = "\'" + duplicateCount + "\'";
             if (duplicates[key] !== undefined) {
@@ -273,9 +247,6 @@ function getStats(txt) {
         if (text === "") {
             return new Array();
         }
-        let allWords = numWords(text).wordArray;
-        let allWordsSize = allWords.length;
-
         let wordFrequencyList = [];
 
         let list = findDuplicates(allWords, allWords);
@@ -307,9 +278,9 @@ function getStats(txt) {
                         break;
                     }
                 }
-
             }
         }
+
         return wordFrequencyList;
     };
 

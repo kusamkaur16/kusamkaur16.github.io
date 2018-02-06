@@ -247,6 +247,7 @@ function getStats(txt) {
         if (text === "") {
             return new Array();
         }
+        let allWords = numWords(text).wordArray;
         let wordFrequencyList = [];
 
         let list = findDuplicates(allWords, allWords);

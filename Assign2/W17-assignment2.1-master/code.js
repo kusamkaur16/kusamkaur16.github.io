@@ -162,7 +162,7 @@ function getStats(txt) {
 
                 //check to see if the word is a palindrome
                 if ((reverseOfWord.toLowerCase() === word.toLowerCase()) && (reverseOfWord.length > 2)) {
-                    if (palindromes.indexOf(reverseOfWord) === -1)
+                    if (palindromes.indexOf(reverseOfWord.toLowerCase()) === -1)
                         palindromes.push(word.toLowerCase());
                 }
             }

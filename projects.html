@@ -37,16 +37,59 @@
                 </div>
                 <div class="row full4 justify-content-center">
                     <div class="row">
-                        <div class="col-4">
-                            <img src="./assets/IMG_1297.JPG" alt="ENCM511" style="width:100%;">
-                        </div>
-                        <div class="col-4">
-                            <img src="./assets/Capture.JPG" alt="chat application" style="width:100%;">
-                        </div>
-                        <div class="col-4">
+                        <div class="col-6 peek">
                             <img src="./assets/Pianoio.JPG" alt="chat application" style="width:100%;">
+                            <div class="overlay">
+                                <div class="text">
+                                    <div class="col-12 white">
+                                        <h5>Pian.io<h5>
+                                    </div>
+                                    <div class="col-12 white">
+                                        <h6>This project was completed as a final project from the web based systems class. This page allows
+                                        multiple users to collaborate and create music sheets. The application has the capability of adding and playing various
+                                        piano notes. This project was a collaborative effort. I was responsible for the saving, share, and collaboration funcationalities.
+                                        This project was completed using Vue, mongoDB, and Feathers. <br> Front end : <a href="https://github.com/kusamkaur16/SENG513-FinalProject" target="_blank" class="white"><span class="fa fa-github"> Github Repo</a>. Back end : <a href="https://github.com/askariya/pian.io-backend" target="_blank" class="white"><span class="fa fa-github"> Github repo</a></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 peek">
+                            <img src="./assets/Capture.JPG" alt="chat application" style="width:100%;">
+                            <div class="overlay">
+                                <div class="text">
+                                    <div class="col-12 white">
+                                        <h5>Chat application<h5>
+                                    </div>
+                                    <div class="col-12 white">
+                                        <h6>This was an assignment for the web based systems class. This application allows communication
+                                        between multiple users. Users also have the ability to update the username and the color of their reponses.
+                                        This is all handled by a seperate back end. The backend relays messages from one user to all other and handles nick
+                                        change requests and the color change requests. This project was completed using HTML, CSS, Javascript, socket.io, and AJAX.
+                                        This project uses cookies to keep track of active and offline users. <a href="https://github.com/kusamkaur16/ChatApplication" target="_blank" class="white"><span class="fa fa-github"> Github Repo</a></h6>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <div class="row pad">
+                        <div class="col-6 peek">
+                            <img src="./assets/IMG_1297.JPG" alt="ENCM511" style="width:100%;">
+                            <div class="overlay">
+                                <div class="text">
+                                    <div class="col-12 white">
+                                        <h5>ENCM 511 - Temperature sensor<h5>
+                                    </div>
+                                    <div class="col-12 white">
+                                        <h6>This project was completed for the embedded systems course. The task was to create
+                                        an interface for the temperature sensor device and the LCD screen to communicate. As the Temperature
+                                        detected by the sensor changed, the display would update accordingly. This was done using C.</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
             <div class="row content">
@@ -74,3 +117,26 @@
         </div>
     </body>
 </html>
+<style>
+.pad {
+    padding-top: 10px;
+}
+img {
+    height: 100%;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008CBA;
+}
+.peek:hover .overlay {
+  opacity: 1;
+}
+</style>

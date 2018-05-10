@@ -1,4 +1,7 @@
 /*  Main page styling  */
+    body {
+        overflow-x: hidden;
+    }
     .blue {
         color: #119DAF;
     }
@@ -87,7 +90,9 @@
         /* padding-top: 5%; */
     }
     .down {
-        padding-top: 5%;
+        /* padding-top: 5%; */
+        position: absolute;
+        top: 10%;
     }
     .white {
         color: white;
@@ -115,7 +120,7 @@
 #sideMenu {
     position: fixed;
     top: 12%;
-    right: 50px;
+    right: 55px;
     width: 39%;
     background-color: #0D5668;
     transition: margin 0.3s ease;

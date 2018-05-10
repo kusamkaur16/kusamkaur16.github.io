@@ -1,0 +1,202 @@
+/*  Main page styling  */
+    .blue {
+        color: #119DAF;
+    }
+    .contactInfo {
+        width: 100%;
+    height: 10%;
+    position: relative;
+    color: white;
+    }
+    .description {
+        font-style: italic;
+        opacity: 0.8;
+    }
+    .subTitle {
+        font-weight: bold;
+    }
+    .body {
+        height: 100%;
+        width: 100%;
+    }
+    .btn {
+        position: absolute;
+        right: 0%;
+    }
+    .entry {
+        min-height: 37px;
+        font-size: 120%;
+    color: white;
+    padding-left: 5%;
+    }
+    .entry:nth-child(odd) {
+        background-color: #575D5E;
+    }
+    .info {
+        background-color: #08090A;
+    }
+    .experience:hover, .resume:hover, .skills:hover, .projects:hover {
+        background-color: #575D5E;
+    }
+    .blurb {
+
+        font-family: sans-serif;
+        padding-left: 10%;
+    }
+
+    .rotate {
+        color: #222728;
+        transform: rotate(-45deg);
+        padding-top: 40px;
+        font-size: 22px;
+    }
+
+    .resume {
+        border-right: solid 5px #222728;
+        border-bottom: solid 5px #222728;
+    }
+
+    .experience {
+        border-bottom: solid 5px #222728;
+    }
+
+    .skills {
+        border-right: solid 5px #222728;
+    }
+
+    .menuOptions {
+        position: relative;
+        width: 420px;
+        height: 420px;
+        top: 282px;
+        background-color: #0D5668;
+        left: 60%;
+        transform: rotate(45deg);
+    }
+
+    .name {
+        padding-left: 10%;
+        font-family: serif;
+    }
+
+    .intro {
+        background-color: #222728;
+        min-height: 100%;
+        position: absolute;
+        width: 100%;
+        /* padding-top: 5%; */
+    }
+    .down {
+        padding-top: 5%;
+    }
+    .white {
+        color: white;
+    }
+/*  Additional pages styling  */
+#decorativeSide{
+    left: -259px;
+    position: absolute;
+    width: 617px;
+    height: 256px;
+    background-color: #0D5668;
+    transform: rotate(-50deg);
+    z-index: 0;
+}
+#decorativeSide2{
+    top: -19%;
+    position: absolute;
+    width: 112%;
+    height: 61%;
+    background-color: #119DAF;
+    transform: rotate(14deg);
+    z-index: 0;
+}
+
+#sideMenu {
+    position: fixed;
+    top: 12%;
+    right: 50px;
+    width: 39%;
+    background-color: #0D5668;
+    transition: margin 0.3s ease;
+    z-index: 3;
+    border-radius: 5px;
+    text-align: center;
+}
+.menuText {
+    font-size: 19px;
+    color: white;
+    transform: rotate(-45deg);
+}
+.menu {
+    position: fixed;
+    right: 22px;
+    top: 10%;
+    height: 74px;
+    width: 74px;
+    background-color: #0D5668;
+    transform: rotate(45deg);
+    z-index: 4;
+}
+.header {
+    color: white;
+    position: absolute;
+    background-color: #293133;
+    height: 10%;
+    width: 100%;
+    z-index: 2;
+}
+/*  Resume page  */
+.option{
+    border-right: #575D5E dashed;
+}
+.full{
+    position: absolute;
+    width: 100%;
+    height: 10%;
+}
+.full2 {
+    position: absolute;
+    top:10%;
+    width: 100%;
+    height: 90%;
+}
+object {
+    height: 90%;
+    width: 80%;
+}
+.mainContent{
+    position: absolute;
+    top: 10%;
+    height: 90%;
+    width: 100%;
+    z-index: 3;
+}
+/*  Skills page  */
+.list {
+    background-color: #575D5E;
+    border-radius: 5px;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    color: #F9FDFF;
+}
+
+.full3 {
+    position: absolute;
+    top: 15%;
+    width: 97%;
+    height: 80%;
+    padding-left: 18%;
+}
+img {
+    width: 30%;
+}
+.full4 {
+    position: absolute;
+    top: 15%;
+    width: 80%;
+    height: 80%;
+    padding-left: 18%;
+}

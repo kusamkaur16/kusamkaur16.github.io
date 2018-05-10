@@ -42,6 +42,7 @@ function getStats(txt) {
 
         //remove all empty string from the array
         words = removeEmpty(words);
+        console.log(words);
 
         return {
             wordLen: words.length,

@@ -1,5 +1,144 @@
-<html>
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Kusamdeep Brar</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
 <body>
-<h1>hey</h1>
+    <div class="container-fluid">
+        <div class="row intro">
+            <div class="row contactInfo justify-content-end">
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-4">
+                            <a href="https://www.linkedin.com/in/kusam-brar-b7a69312a" target="_blank" class="white"><span class="fa fa-linkedin"> LinkedIn profile</a><br>
+                        </div>
+                        <div class="col-4">
+                            <a href="https://github.com/kusamkaur16" target="_blank" class="white"><span class="fa fa-github"> Github profile</a>
+                        </div>
+                        <div class="col-4">
+                            <span class="fa fa-envelope"> kusamdeepbrar@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row down">
+                <div class="col-6">
+                    <h1 class="white name">KUSAMDEEP <br>BRAR</h1>
+                </div>
+                <div class="col-6">
+                    <h6 class="white description">I am a dedicated and organized individual with experience in development and testing in an agile environment,
+                        looking for an opportunity as a software engineer. I am seeking to gain valuable work experience in a team oriented atmosphere
+                        that will help me grow professionally and personally.</h6>
+                </div>
+                <div class="col-6 blurb info">
+
+                    <br>
+                    <h4 class="subTitle blue">Education</h4>
+                    <h6 class="white">Bachelor of Sciencee in Software Engineering (with internship)</h6>
+                    <h6 class="white">University of Calgary, Schulich School of Engineering </h6>
+                    <br>
+                    <h4 class="subTitle blue">Scholarships</h4>
+                    <h6 class="white">Jason Lang Scholarship - 2016</h6>
+                    <h6 class="white">Alexander Rutherford Scholarship - 2013</h6>
+                    <h6 class="white">University Entrance Scholarship - 2013</h6>
+                    <br>
+                    <h4 class="subTitle blue">Courses</h4>
+                    <h6 class="white">Through out my undergrad, I have taken several interesting and challenging courses. Some of which are:</h6>
+
+                    <div class="classList">
+                        <div class="entry">Network Systems Security
+                            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#security">+</button>
+                            <div class="collapse" id="security">
+                                <h6>This course focused on teaching attacks on networked systems, tools and techniques used for
+                                detection and protection against such attacks. This included the introduction to firewalls and intrusion detection and protection systems.
+                                As well as authentication and identification in distributed systems and cryptographic protocols for IP networks.</h6>
+                            </div>
+                        </div>
+                        <div class="entry">Large Scale Analytic Systems
+                            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#bigData">+</button>
+                            <div class="collapse" id="bigData">
+                                <h6>In this course, I was introduced to topics dealing with big data analysis. This included
+                            the exploration of the map reduce technique using python, hadoop, and pyspark. As well as focusing on both supervised and unsupervised machine
+                            learning techniques.</h6>
+                            </div>
+                        </div>
+                        <div class="entry">Web based Systems
+                            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#web">+</button>
+                            <div class="collapse" id="web">
+                                <h6>This course exposed me to various technologies related to web development. This includes exposure to frameworks
+                                like angular, vue, and react as well as back end technologies like socket.io and ajax.</h6>
+                            </div>
+                        </div>
+                        <div class="entry">Human Computer Interactions
+                            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#hci">+</button>
+                            <div class="collapse" id="hci">
+                                <h6>This course explored the fundamental theory and practice of design, implementation, and evaluation of human-computer interfaces. Topics
+                                    included methods for evaluating interfaces, techniques for
+                                    prototyping and implementing graphical user interfaces.</h6>
+                            </div>
+                        </div>
+                        <div class="entry">Embedded System interfacted
+                            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#encm">+</button>
+                            <div class="collapse" id="encm">
+                                <h6>This course offered a review of computer architecture by reexamining microcontrollers and their instruction sets. The focus was on interfacing using common
+                                    input/output devices, strategies for interrupt handling and exception handling. This interfacing was done using high level (C and C++) and assembly languages.
+                                    The goal was to identify software and hardware optimizations that would allow us to achieve real
+                                    time operations for use in real time operating systems.</h6>
+                            </div>
+                        </div>
+                        <div class="entry">Project Management
+                            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#projectManagement">+</button>
+                            <div class="collapse" id="projectManagement">
+                                <h6>This course explored the analysis of methods, tools, and techniques for software process improvement and software project management. This course helped me get familiar
+                                    with real world practice of SDLC and techniques that can be used to improve the workflow of the process.</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="row menuOptions" id="mainMenu">
+                <div class="col-6 resume" onclick="location.href='resume.html';">
+                    <h6 class="rotate white">Resume</h6>
+                    <span class="fa fa-file-pdf-o rotate"></span>
+                </div>
+                <div class="col-6 experience" onclick="location.href='experience.html';">
+                    <h6 class="rotate white">Experience</h6>
+                    <span class="fa fa-drivers-license rotate"></span>
+                </div>
+                <div class="col-6 skills" onclick="location.href='skills.html';">
+                    <h6 class="rotate white">Skills</h6>
+                    <span class="fa fa-edit rotate"></span>
+                </div>
+                <div class="col-6 projects" onclick="location.href='projects.html';">
+                    <h6 class="rotate white">Projects</h6>
+                    <span class="fa fa-book rotate"></span>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
+<script>
+    $(document).ready(function() {
+        $("#mainMenu").hide().fadeIn(1000);
+    });
+    $( ".btn" ).click(function() {
+        if($( this ).text() === "-"){
+            $( this ).text("+");
+        } else {
+            $( this ).text("-");
+        }
+    });
+</script>

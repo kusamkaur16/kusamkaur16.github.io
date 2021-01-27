@@ -88,7 +88,7 @@
     }
 
     .intro {
-
+        background-color: #222728;
         min-height: 100%;
         position: absolute;
         width: 100%;
@@ -101,9 +101,6 @@
     }
     .white {
         color: white;
-    }
-    .black{
-      color: black;
     }
 /*  Additional pages styling  */
 .diamond-menu{

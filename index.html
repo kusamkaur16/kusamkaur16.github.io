@@ -1,380 +1,92 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<!doctype html>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>Kusamdeep Brar</title>
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Worlds' of Kusam</title>
   </head>
-  <script>
-
-  $(document).ready(function(){
-
-    $('[data-toggle="tooltip"]').tooltip();
-
-    function run_graph(){
-      $('.bar').each(function(i){
-        var $bar = $(this);
-        //$(this).append('<span class="count"></span>')
-        setTimeout(function(){
-          $bar.css('width', $bar.attr('data-percent'));
-        }, i*100);
-      });
-
-    $('.count').each(function () {
-        $(this).prop('Counter',0).animate({
-            Counter: $(this).parent('.bar').attr('data-percent')
-        }, {
-            duration: 2000,
-            easing: 'swing',
-            step: function (now) {
-                $(this).text(Math.ceil(now) +'%');
-            }
-        });
-    });
-    }
-
-    function moveCards(){
-      // point appear by appending div_appear
-      $('.exp_card').each(function(i, item){
-        var viewportTop = $(document).scrollTop();
-        var viewportBottom = viewportTop + $(window).height();
-        var card1 = $(item);
-        var thisTop = $(document).scrollTop();
-        var thisBottom = thisTop + $(document).height();
-        var card_top = card1.offset().top;
-        var card_bottom = card_top + + card1.height();
-        if (card_top > viewportTop && card_top < viewportBottom){
-          $(item).addClass('card_animate');
-        }
-
-      });
-      $('.text_box').each(function(i, item){
-        var viewportTop = $(document).scrollTop();
-        var viewportBottom = viewportTop + $(window).height();
-        var card1 = $(item);
-        var thisTop = $(document).scrollTop();
-        var thisBottom = thisTop + $(document).height();
-        var card_top = card1.offset().top;
-        var card_bottom = card_top + + card1.height();
-        if (card_top > viewportTop && card_top < viewportBottom){
-          $(item).addClass('card_animate');
-        }
-
-      });
-    }
-
-    function graph_nav(){
-      var viewportTop = $(document).scrollTop();
-      var viewportBottom = viewportTop + $(window).height();
-      var elem = $('#skill');
-      // generate graph when in view
-      var elemTop = $(elem).offset().top;
-      var elemBottom = elemTop + $(elem).height();
-      if(elemTop > viewportTop && (elemTop < viewportBottom)){
-        run_graph();
-      }
-    }
-
-
-    $(window).bind('scroll',function(e){
-      dotnavigation();
-      graph_nav();
-      pointNav();
-      moveCards();
-
-    });
-
-    function pointNav(){
-      // point appear by appending div_appear
-      $('.point').each(function(i, item){
-        var viewportTop = $(document).scrollTop();
-        var viewportBottom = viewportTop + $(window).height();
-        var po1 = $(item);
-        var thisTop = $(document).scrollTop();
-        var thisBottom = thisTop + $(document).height();
-        var po_top = po1.offset().top;
-        var po_bottom = po_top + + po1.height();
-        if (po_top > viewportTop && po_top < viewportBottom){
-          $(item).addClass('div_appear');
-        }
-      });
-    }
-
-    function dotnavigation(){
-
-        var numSections = $('.panels').length;
-
-        //$('#navmenu li a').removeClass('active').parent('li').removeClass('active');
-        $('.panels').each(function(i,item){
-          var ele = $(item), nextTop;
-
-
-          if (typeof ele.next().offset() != "undefined") {
-            nextTop = ele.next().offset().top;
-          }
-          else {
-            nextTop = $(document).height();
-          }
-
-          if (ele.offset() !== null) {
-            thisTop = ele.offset().top - ((nextTop - ele.offset().top) / numSections);
-          }
-          else {
-            thisTop = 0;
-          }
-
-          var docTop = $(document).scrollTop();
-
-
-
-
-
-          if(docTop >= thisTop && (docTop < nextTop)){
-            $('#navmenu li').eq(i).addClass('active');
-          }
-          if (docTop < thisTop) {
-            $('#navmenu li a').eq(i).parent('li').removeClass('active');
-          }
-
-        });
-    }
-
-    /* get clicks working */
-    $('#navmenu li').click(function(){
-
-        var id = $(this).find('a').attr("href"),
-          posi,
-          ele,
-          padding = 0;
-
-        ele = $(id);
-        posi = ($(ele).offset()||0).top - padding;
-
-        $('html, body').animate({scrollTop:posi}, 'slow');
-
-        return false;
-    });
-
-});
-  </script>
-
   <body>
-    <div class="container-fluid wrapper p-0">
-      <div id="intro" class="row intro panels">
-        <div class="contactInfo justify-content-end">
-              <div class="col-4">
-                  <div class="row">
-                      <div class="col-4">
-                          <a href="https://www.linkedin.com/in/kusam-brar-b7a69312a" target="_blank" class="iconsize">
-                            <span class="fa fa-linkedin"></span>
-                          </a><br>
-                      </div>
-                      <div class="col-4">
-                          <a href="https://github.com/kusamkaur16" target="_blank" class="iconsize">
-                            <span class="fa fa-github"></span>
-                          </a>
-                      </div>
-                      <div class="col-4">
-                          <span class="fa fa-envelope iconsize"></span>
-                      </div>
-                  </div>
-              </div>
-          </div>
-
-          <div id="introbox">
-
-            <div class="box top">
-              <span id="name">Kusam Brar</span><br>
-              <span style="font-size:20px; font-style:italic; color:#2ec4b6;">Software Developer</span>
-            </div>
-
-          </div>
-        </div>
-
-        <div id="navmenu" data-spy="affix">
-          <ul>
-            <li data-toggle="tooltip" data-placement="left" title="Home" class="active"><a href="#intro"></a></li>
-            <li data-toggle="tooltip" data-placement="left" title="About"><a href="#bio"></a></li>
-            <li data-toggle="tooltip" data-placement="left" title="Timeline"><a href="#experience"></a></li>
-            <li data-toggle="tooltip" data-placement="left" title="Experience"><a href="#exp"></a></li>
-            <li data-toggle="tooltip" data-placement="left" title="Skills"><a href="#skill"></a></li>
-          </ul>
-
-        </div>
-
-        <div id="bio" class="row panels no-gutters">
-          <span class="white title">About</span>
-          <div class="boxy-container">
-            <div class="text_box">
-              <span class="bio_text">Kusam is a backend software engineer currently working as a part of the IIAS disaster recovery squad
-              in IBM hybrid data management services. </span>
-
-              <br>
-              <span class="bio_text_small">She's originally from the cold land of Canda and is currently enjoying sunny California.
-              In her spare time, she enjoys hiking, playing badminton, and dancing. She is always willing engage in serious conversation
-              regarding the latest Netflix specials. Currently exploring anime.</span>
-            </div>
-            <div class="intro_img">
-              <img src="assets/photography/IMG_2730.jpg" alt="">
-            </div>
-
-          </div>
-
-        </div>
-        <div id="experience" class="row panels no-gutters">
-          <span class="white title">Career Timeline</span>
-          <div class="timeline-container">
-            <div class="timeline">
-                <div class="point">
-                  <div class="date">August 2013</div>
-                  <div class="pointContent">
-                    <p>
-                      I started my engineering journey! My first introduction to software was in 2013. It began when I
-                      enrolled at the University of Calgary to pursue
-                      a degree in Software Engineering.
-                    </p>
-                  </div>
-                </div>
-                <div class="point">
-                  <div class="date big left">May 2016</div>
-                  <div class="pointContent">
-                    <p>
-                      I began my internship with IBM! This was my first exposure to large scale software development
-                      out in industry.
-                    </p>
-                  </div>
-                </div>
-                <div class="point">
-                  <div class="date">August 2017</div>
-                  <div class="pointContent">
-                    <p>
-                      Completed Internship! This experience gave my the chance to hone my investigative and web development skills.
-                      I also got to meet some incredible people.
-                    </p>
-                  </div>
-                </div>
-                <div class="point">
-                  <div class="date big left">August 2018</div>
-                  <div class="pointContent">
-                    <p>
-                      Capstone! This was my first chance to design, develop, and test a full solution from back to front for real customers.
-                    </p>
-                  </div>
-                </div>
-                <div class="point">
-                  <div class="date ">June 2018</div>
-                  <div class="pointContent">
-                    <p>
-                      Completed Engineering! This degree taught me not only the technical skills that are required to excel in industry,
-                      but it also taught me an important lesson about the importance of discipline and good work ethic. With that, I made some amazing memories
-                      with some amazing friends.
-                    </p>
-                  </div>
-                </div>
-                <div class="point">
-                  <div class="date big left">August 2018</div>
-                  <div class="pointContent">
-                    <p>
-                      Started my first job! With the completion of my degree, I took my first steps into the corporate world and began working as a software Engineer
-                      with IBM.
-                    </p>
-                  </div>
-                </div>
-            </div>
-          </div>
-
-        </div>
-        <div id="exp" class="row panels no-gutters">
-          <span class="white title">Experience</span>
-          <div class="exp_card">
-            <img class="card_img" src="https://s3.amazonaws.com/freebiesupply/large/2x/ibm-logo-black-transparent.png" alt="IBM logo"><br>
-            <span>Software Engineering Intern - IBM Canada</span><br>
-            <span style="color: #ff9f1c;">May 2016 - August 2017</span><br><br>
-            <p class="text_left">I completed my internship with IBM Canada as a software engineering intern. I worked as a member of the DB2 Regression Testing team. During my internship, my daily duty was to ensure that all
-            regression tests run clean for release 11 and 11.1 after each delivery. In the case of test case failure, my duty was to identify the bug. Upon identification, if the bug was identified as a test case failure, I
-            fixed the said test case. In the case of a code failure, the responsible party was asked to fix their delivery. I dealt the test cases written in C and Perl. <br>
-            During my internship, I was also responsible for maintaining and creating the internal regression web pages. This was done using MySQL, PHP, HTML, CSS, Javascript, and AJAX.
-            Maintaining the web pages meant optimizing sql queries, and optimizing the database structure to improve the performance response time for better end user experience.</p>
-
-          </div>
-          <div class="exp_card">
-            <img class="card_img" src="http://www.albertaexportawards.ca/wp-content/uploads/2017/11/Circle_Logo_CMYK.jpg" alt="circle logo"><br>
-            <span>Capstone - Circle Cardiovascular</span><br>
-            <span style="color: #ff9f1c;">September 2017 - May 2018</span><br><br>
-            <p class="text_left">As a part of the software engineering degree, a final fourth year project is completed. This project is a culmination
-            of everything that we have learned. For my fourth year project, I was a part of a team that completed a entrepernural
-            project with Circle Cardiovascular Imaging Inc. The project was completed using AngularJS, Three.js, jQuery, bootstrap, and HTML.
-            This project was completed by a team of 4 software engineering students. As per industry standards, the team adopted the
-            agile methodology in order to develop the final product. I was involved in designing as well as creating the final architecture
-            of the application. In addition to this, I also developed the ASCII and binary STL parsers. These parsers were used to generate
-            3D images from various formats of STL files. I was also responsible for implementing the model manipulation of the generated models.</p>
-
-          </div>
-          <div class="exp_card">
-            <img class="card_img" src="https://s3.amazonaws.com/freebiesupply/large/2x/ibm-logo-black-transparent.png" alt="IBM logo"><br>
-            <span>Software Engineer</span><br>
-            <span style="color: #ff9f1c;">September 2018 - Current</span><br><br>
-            <p class="text_left">After completing my degree, I started working as a backend developer with the IBM Hybrid Cloud Data management division. As a member of the
-              Disaster Recovery Squad, I work on developing new and critical replication solutions for IIAS and ICP4D systems. Working on these projects has allowed me
-              to continue to get the opportunity to learn and use python, docker, openshift, and DB2.</p>
-          </div>
-
-        </div>
-        <div id="skill" class="row panels no-gutters">
-          <span class="white title">Skills</span>
-          <span class="graph_title">Web Development</span>
-          <div class="graph_set">
-            <div class="holder"><div class="bar " data-percent="80%"><span class="label">HTML</span></div>
-            <div class="bar" data-percent="80%"><span class="label">CSS</span></div>
-            <div class="bar" data-percent="70%"><span class="label">JavaScript</span></div>
-            <div class="bar" data-percent="60%"><span class="label">jQuery</span></div>
-            <div class="bar" data-percent="65%"><span class="label">Bootstrap</span></div>
-            </div>
-          </div>
-          <span class="graph_title">Programming Languages</span>
-          <div class="graph_set">
-
-            <div class="holder"><div class="bar " data-percent="90%"><span class="label">Python</span></div>
-            <div class="bar" data-percent="60%"><span class="label">Java</span></div>
-            <div class="bar" data-percent="60%"><span class="label">C++</span></div>
-            <div class="bar" data-percent="75%"><span class="label">SQL</span></div>
-            <div class="bar" data-percent="60%"><span class="label">C</span></div>
-            <div class="bar" data-percent="65%"><span class="label">Bash</span></div>
-            </div>
-
-          </div>
-          <span class="graph_title">Web Technologies</span>
-          <div class="graph_set">
-
-            <div class="holder"><div class="bar " data-percent="60%"><span class="label">Angular</span></div>
-            <div class="bar" data-percent="65%"><span class="label">Three.js</span></div>
-            <div class="bar" data-percent="60%"><span class="label">Ajax</span></div>
-
-            </div>
-
-          </div>
-          <span class="graph_title">Tools</span>
-          <div class="graph_set">
-            <div class="holder"><div class="bar " data-percent="60%"><span class="label">Eclipse</span></div>
-            <div class="bar" data-percent="75%"><span class="label">Atom</span></div>
-            <div class="bar" data-percent="80%"><span class="label">Git</span></div>
-            <div class="bar" data-percent="70%"><span class="label">UML</span></div>
-            <div class="bar" data-percent="90%"><span class="label">WORD</span></div>
-            <div class="bar" data-percent="70%"><span class="label">Excel</span></div>
-            <div class="bar" data-percent="80%"><span class="label">Powerpoint</span></div>
-            </div>
-
-          </div>
-
-        </div>
-
+    <canvas class="webgl"></canvas>
+    <nav>
+      <ul>
+        <li><a href="https://www.linkedin.com/in/kusam-b-b7a69312a?trk=people-guest_people_search-card" target="_blank" id="connect">Let's Connect!</a></li>
+      </ul>
+    </nav>
+    <h1 class="title">My Universe, My Work</h1>
+    <script type="module" src="/src/main.js"></script>
+    <div class="nav-section" id="nav-down">
+      <span class="move-down-arrow"></span>
+      <span class="move-down-arrow"></span>
+    </div>
+  <div id="introduction">
+    <blockquote id="description">Welcome to my little world! This space is a reflection of the various worlds I navigate—each one shaping who I am and what I create. 
+      From my professional journey to personal passions, this site offers a glimpse into the different realms I explore, grow in, and contribute to. 
+      Whether it's through my work as a Software Engineer, my dedication to school, or my engagement with hiking, each section showcases a different facet of my story. 
+      I invite you to dive in and explore these worlds with me!</blockquote>
+  </div>
+  <div id="school">
+    <div class="school_description">
+      <span id="right">I completed my Bachelor's at University of Calgary. This is where I discovered the potential of coding and started on my tech journey. This program
+        introduced me to new coding languages, web development, big data, and embedded systems. I completed my journey here by aquiring my bachelors in Software Engineering in 2018.
+      </span>
+    </div>
+    <div class="school_description">
+    <span id="down">I decided to continue my academic degree. I decided to enroll in University of California Berkeley where I am currently completing my Masters in Data Science.
+      As AI continues to evolve, it has become essential to involved in this space. This degree has introduced me to machine learning fundamentals, advanced models and its various
+      applications. The most exciting applications include computer vision, time series modelling, and Natural Language Processing. During my time here, the ethics behind model
+      development have become a keen interest of mine. I will be completing my journey here in May of 2025.
+    </span>
+    </div>
+  </div>
+  <div>
+    <div class="constellation">
+      <div class="star" id="star1"></div>
+      <div class="star" id="star2"></div>
+      <div class="star" id="star3"></div>
+      <div class="star" id="star4"></div>
+      
+      <div class="line" id="line1"></div>
+      <div class="line" id="line2"></div>
+      <div class="line" id="line3"></div>
+  </div>
+    <div id="container">
+      <div class="info" id="ibm_intern">
+        <span class="career_description">I entered the proffessional world as an intern with IBM. Here I go the opportunity to work on one of the most
+          widely used databases, DB2.</span>
       </div>
+      <div class="info" id="ibm">
+        <span class="career_description">After graduating, I formally started my career by rejoining IBM to work on their appliances team. Here I once again
+          got the chance to work with the DB2 product, this time as a member of the disaster recovery team.</span>
+      </div>
+      <div class="info" id="aws">
+        <span class="career_description">I decided to enter the world of cloud computing! I joined AWS with a network security team in charge of TLS termination
+          for a large portion of AWS products.
+        </span>
+      </div>
+      <div class="info" id="aws_2">
+        <span class="career_description">In an effort to expand my skills, I got the chance to work with another team within AWS, API Gateway. This exposed
+          me to what it  means to work truely at scale!
+        </menu></span>
+      </div>
+    </div>
+  </div>
+  <div class="under_construction">
+    <span class="construction">We're still working on adding more cool things here! Come back later to see more about the data science projects in the work!</span>
+  </div>
+  <div id="explore_again">
+  
+    <div class="move_up">
+      <i class="fa fa-refresh" style="font-size:35px"></i>
+    </div>
+
+  </div>
   </body>
+  <footer>
+    <p>made by <a href="https://codepen.io/juliepark"> Kusam</a> ♡
+  </footer>
 </html>

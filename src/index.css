@@ -1,0 +1,461 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  overflow-x: hidden;
+  font-family: "Poppins", sans-serif;
+}
+
+.webgl {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+nav {
+  color: white;
+  z-index: 2;
+  position: relative;
+  padding: 4rem 8rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 4rem;
+}
+
+.title {
+  color: white;
+  z-index: 2;
+  position: absolute;
+  font-size: 3rem;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%, -75%);
+}
+
+#introduction {
+  color: white;
+  z-index: 2;
+  position: absolute;
+  font-size: 25px;
+  left: 40%;
+  padding-right: 5%;
+  bottom: 25%;
+}
+
+#description {
+  opacity: 0;
+}
+
+#school {
+  color: white;
+  z-index: 2;
+  position: absolute;
+  font-size: 1rem;
+  left: 5%;
+  top: 20%;
+}
+
+.school_description {
+  opacity: 0;
+}
+
+.construction {
+  opacity: 0;
+  z-index: 2;
+  color: white;
+  position: absolute;
+  padding-left: 5%;
+}
+
+#right {
+  position: fixed;
+  left: 40%;
+  padding-right: 5%;
+  font-size:20px;
+}
+
+#down {
+  position: fixed;
+  bottom: 20%;
+  right: 40%;
+  padding-left: 5%;
+  font-size: 20px;
+}
+
+#career {
+  z-index: 2;
+  color: white;
+  position: absolute;
+  right: 5%;
+  opacity: 0;
+}
+
+#explore_again{
+  z-index: 2;
+  position: absolute;
+  bottom: 6px;
+  margin: 0;
+  padding-left: 1%;
+  color: white;
+  display: grid;
+}
+
+.move_up {
+  align-items: center;
+  opacity: 0;
+}
+
+.nav-section{
+  z-index: 2;
+  position: fixed;
+  bottom: 6px;
+  left: 50%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.move-up-arrow {
+  transform: rotateX('180');
+}
+
+.move-down-arrow {
+  width: 10px ;
+  height: 40px;
+  border-radius: 5px;
+  background-color: white;
+  margin: 6px;
+  animation: moveDown 1.1s infinite;
+}
+
+.move-down-arrow:nth-of-type(1) {
+  transform: rotate(-45deg);
+}
+.move-down-arrow:nth-of-type(2) {
+  transform: rotate(45deg);
+}
+
+.green {
+  color: darken(#99DBB4, 20%);
+}
+
+p {
+  margin-top: -5px;
+  font-size: 0.5em;
+  font-weight: 100;
+  color: darken(#777777, 10%);
+  letter-spacing: 1px;
+}
+
+button, .dot {
+  cursor: pointer;
+}
+
+
+.career_info {
+  z-index: 2;
+  position: absolute;
+  width: 30%;
+  height: 60%;
+  left: 60%;
+  background: linear-gradient(to bottom right, #B0DB7D 40%, #99DBB4 100%);
+  border-radius: 20px;
+  box-shadow: 5px 5px 20px rgba(#CBCDD3, 10%);
+  perspective: 40px;
+  top: 25%;
+  opacity: 0%;
+}
+
+
+
+.face {
+  position: absolute;
+  width: 22%;
+  height: 22%;
+  background: #FCFCFC;
+  border-radius: 50%;
+  border: 1px solid #777777;
+  top: 21%;
+  left: 37.5%;
+  z-index: 2;
+  animation: bounce 1s ease-in infinite;
+}
+
+.face2 {
+  position: absolute;
+  width: 22%;
+  height: 22%;
+  background: #FCFCFC;
+  border-radius: 50%;
+  border: 1px solid #777777;
+  top: 21%;
+  left: 37.5%;
+  z-index: 2;
+  animation: roll 3s ease-in-out infinite;
+}
+
+.eye {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: #777777;
+  border-radius: 50%;
+  top: 40%;
+  left: 20%;
+}
+
+.right {
+  left: 68%;
+}
+
+.mouth {
+  position:absolute;
+  top: 43%;
+  left: 41%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.happy {
+  border: 2px solid;
+  border-color: transparent #777777 #777777 transparent;
+  transform: rotate(45deg);
+}
+
+.shadow {
+  position: absolute;
+  width: 21%;
+  height: 3%;
+  opacity: .5;
+  background: #777777;
+  left: 40%;
+  top: 43%;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.scale {
+  animation: scale 1s ease-in infinite;
+}
+.move {
+  animation: move 3s ease-in-out infinite;
+}
+
+
+.message {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  height: 40%;
+  top: 47%;
+}
+
+.info {
+  z-index: 2;
+  position: absolute;
+  color: white;
+  font-size: 1rem;
+}
+
+#ibm {
+  left: 30%;
+  bottom: 5%;
+  opacity: 0;
+  width: 25%;
+}
+
+#ibm_intern {
+  left: 14%;
+  top: 27%;
+  opacity: 0;
+  width: 25%;
+}
+
+#aws{
+  right:25%;
+  top: 28%;
+  opacity: 0;
+  width: 25%;
+}
+
+#aws_2{
+  right: 5%;
+  bottom: 35%;
+  opacity: 0;
+  width: 25%;
+}
+
+
+.constellation {
+  z-index: 2;
+  position: absolute;
+  width: 100%;
+  height: 80%;
+}
+
+.star {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #FFF;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0);
+}
+
+#star1 {
+  top: 15%;
+  left: 10%;
+}
+
+#star2 {
+  top: 80%;
+  left: 30%;
+}
+
+#star3 {
+  top: 30%;
+  left: 50%;
+}
+
+#star4 {
+  top: 45%;
+  left: 70%;
+}
+
+.line {
+  position: fixed;
+  width: 0;
+  height: 2px;
+  background-color: #FFF;
+  opacity: 0;
+  transform-origin: left;
+}
+
+blockquote::before {
+  content: open-quote;
+}
+blockquote::after {
+  content: close-quote;
+}
+blockquote {
+  quotes: "“" "”" "‘" "’";
+  text-indent: -0.45em;
+}
+
+@keyframes appear {
+  0% {
+      opacity: 0;
+      transform: scale(0);
+  }
+  100% {
+      opacity: 1;
+      transform: scale(1);
+  }
+}
+
+@keyframes appear_wo_scale {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+@keyframes drawLine {
+  0% {
+    width: 0;
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}
+
+
+@keyframes bounce {
+  50% {
+     transform: translateY(-10px);
+  }
+}
+
+@keyframes scale {
+  50% {
+    transform: scale(0.9);
+  }
+}
+
+@keyframes roll {
+  0% {
+    transform: rotate(0deg);
+    left: 25%;
+  }
+  50% {
+    left: 60%;
+    transform: rotate(168deg);
+  }
+  100% {
+    transform: rotate(0deg);
+    left: 25%;
+  }
+}
+
+@keyframes move {
+  0% {
+    left: 25%;
+  }
+  50% {
+    left: 60%;
+  }
+  100% {
+    left: 25%;
+  }
+}
+
+footer {
+  z-index: 2;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  font-size: 2em;
+  text-transform: uppercase;
+  padding: 10px;
+  font-family: 'Lato', sans-serif;;
+  p {
+    color: #EF8D9C;
+    letter-spacing: 2px;
+  }
+  a {
+    color: #B0DB7D;
+    text-decoration: none;
+    &:hover {
+      color: #FFC39E;
+    }
+  }
+}
+
+
+@keyframes moveDown {
+  0%{margin-bottom:0%;}
+  50%{margin-bottom: 10px;}
+  100%{margin-bottom: 0%;}
+}
+
+

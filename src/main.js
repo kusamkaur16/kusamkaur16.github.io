@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import gsap from "gsap"
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import '/src/index.css'
+import './index.css'
 
 // CONSTANTS
 // Get the size of the viewport
